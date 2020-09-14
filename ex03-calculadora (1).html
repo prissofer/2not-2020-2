@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documento HTML</title>
+    <script>
+        // 'use strict' impede que variáveis sejam declaradas
+        // sem o uso de let, var ou const
+        // Inicializar variáveis diretamente é má prática de
+        // programação
+        'use strict'
+        
+        /*
+            Solicite ao usuário para informar dois números e um operador
+            matemaático. Você usará três prompt(), um para cada número e
+            o terceiro para o operador.
+
+            Aceite os seguintes operadores:
+            + => adição
+            - => subtração
+            *, X ou x => multiplicação
+            / ou : => divisão
+
+            Efetue o cálculo apropriado de acordo com o operador informado
+            e informe o resultado usando document.write().
+        */
+        //parseFloat()*tenta* cibverter em números de ponto flutuante (casas decimais)
+        let num1 = parseFloat(prompt('Informe o primeiro número:'))
+        let num2 = parseFloat(prompt('Informe o segundo número:'))
+        let oper = prompt('Informe um operador desejado(adição (+) ou subtração (-) ou multiplicação (*,X,x) ou divisão (/)):')
+        let res, temErro = false
+
+        // teste de valiadação dos números
+        if(isNaN(num1) || isNaN(num2))    {
+           alert('ERRO: pelo menos um dos números informados é inválido.')
+           temErro = true
+        }
+        else if (oper == '+')    {
+           res = (num1 + num2)
+        }
+        else if (oper == '-')    {
+           res = (num1 - num2)
+        }
+        else if (oper == '*' || oper == 'X' || oper == 'x')  {
+           res = (num1 * num2)
+        }
+        else if(oper == '/')    {
+           res = (num1 / num2)
+        } 
+        else {
+           alert('Operador informado é inválido!')
+           temErro = true
+        }
+        if(!temErro) {
+            //document.write('O resultado da operação: ' + num1 + ' ' + oper + ' ' + num2 + ' é igual a ' + res + '.')
+
+            // Usando string template ( que usa acentos graves - backtick)
+            document.write(`O resultado da operação : ${num1} ${oper} ${num2} é igual a ${res}.`)
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
