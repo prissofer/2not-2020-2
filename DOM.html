@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documetno HTML</title>
+</head>
+<body>
+   <h1>Tútulo da página</h1>
+   <p>Isto é um parágrafo</p>
+<ul>
+    <li>Primeiro item</li>
+    <li id="Intruso">Intruso</li>
+    <li>Segundo item</li>
+    <li id='item-x'>Terceiro item</li>
+
+<script>
+        // 'use strict' impede que variáveis sejam declaradas com o uso de let, var, ou const.
+        // Inicializar variáveis diretamente é má prática de programação
+        'use strict'
+
+        /* 
+            DOM: DOCUMENT OBJECT MODEL (Modelo de Objetos do Documento)
+
+        */
+
+       // docment.querySelector: retorna o primeiro elemento de seu tipo
+       const cabec = document.querySelector('h1')
+       // Alterando o teto interno do elemento
+       cabec.innerHTML = 'Manipulando o Document Model (DOM)'
+
+       /* 
+            Alterando o texto do Segendo item
+       */
+      // document.querySelectorAll: captura Todos os elementos do tipo informado e coloca dentro de um vetor
+      const itens = document.querySelectorAll('li')
+
+      // Em JavaScript, o primeiro elemento é o de índice 0 (ZERO) dentro do vetor
+      itens[1].innerHTML = 'SEGUNDO ITEM ALTERADO'
+
+    
+      //Formal tradicional  
+      const itens2 = document.getElementsByTagName('li')
+      itens2[2].innerHTML = 'TERCEIRO ITEM ALTERADO'
+
+      // Capturando um elemento por ID da forma antiga
+      const elemIntruso = document.getElementById('Intruso')
+      elemIntruso.innerHTML = 'Sou um Intruso'
+
+      // Capturando um elementi por id da forma nova (ES+)
+      // Para capturar por ID com o querySelector(), é necessário usar # antes do id do elemento
+      const elemX = document.querySelector('#item-x')
+      elemX.style.backgroundColor = 'yellow'
+          
+    </script> 
+</body>
+</html>
