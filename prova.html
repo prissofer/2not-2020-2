@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documetno HTML</title>
+    <script>
+        // 'use strict' impede que variáveis sejam declaradas com o uso de let, var, ou const.
+        // Inicializar variáveis diretamente é má prática de programação
+        'use strict'
+
+     for( let i = 1; i <= 400; i = i + 28) {
+            document.write(i + "<br>")
+        }
+    // Traço HTML
+        document.write('<hr>')
+
+     do {
+          num = parseInt(prompt('Informe o número de um mês (de 1 à 400):'))
+        } while(isNaN(num)|| num < 0 || num > 400)
+
+            switch(num) {
+                case 92:
+                case 177:
+                case 291:
+                case 388:
+                     alert('No kimoletro informado tem uma Mega Loja do Magazine Luiza')
+                    break
+                case 153:
+                case 356:
+                    alert('No kimoletro informado tem um Drive-thru dos Calçados Rafarillo')
+                    break
+                case 187: 
+                    alert('No kimoletro informado tem um  Posto de recarga da Viação São José')
+                    break
+                case 210: 
+                    alert('No kimoletro informado tem uma Padaria Estrela')
+                    break
+                case 314: 
+                    alert('No kimoletro informado tem uma Fábrica do Jubileu do Amendoim')
+                    break
+                case 367: 
+                    alert('No kimoletro informado tem um Franca AcquaParque Unidade II')
+                    break
+
+                default:        // se não entrar em nenhum case
+                     alert('Vapo, tem nada aqui não. Segue reto toda vida, meu fii.')
+
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documetno HTML</title>
+    <script>
+        // 'use strict' impede que variáveis sejam declaradas com o uso de let, var, ou const.
+        // Inicializar variáveis diretamente é má prática de programação
+        'use strict'
+
+        /*
+            Peça ao usuário paa informar, repetidamente. Esses números sendo somados até que o ususário informe 0.
+            Então, o resultado da soma é exibido.
+
+        */
+
+        let soma = 0
+        
+        // Number tem o mesmo efeito do parseFloat
+        // let num = Number(prompt('Informe um número a ser somado (ou 0 para terminar):'))
+
+        let num = 1     // Qualquer coisa que não seja 0
+
+        /*
+            Característica do loop while
+            1) Local do teste : no ínicio
+            2) Garantia de execução: 0 (zero) por que se a condição for false ele não entra no while.
+            3) Número de repetições: é indeterminado
+        */
+
+        //Estrutira de repetição: while
+        while(num != 0) {
+                num = Number(prompt('Informe um número a ser somado (ou 0 para terminar):'))
+
+            // O número só entra para a soma se for válido
+            if(!isNaN(num)) {
+                soma = soma + num   // soma += num pode ser escrito desta forma isso foi erdado do C
+            }
+        }
+
+        document.write(`A soma dos números informados é ${soma}.`)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

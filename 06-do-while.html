@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documetno HTML</title>
+    <script>
+        // 'use strict' impede que variáveis sejam declaradas com o uso de let, var, ou const.
+        // Inicializar variáveis diretamente é má prática de programação
+        'use strict'
+
+        /*
+            Característica do llop do..while
+            1) Local do teste: no final
+            2) Garantia de execução: 1 (um)
+            3) Número de repetições: indeterminado
+        */
+       let soma = 0
+       let num
+
+       do {
+           num = Number(prompt('Digite um número para somar (ou 0 para terminar):'))
+
+           if(!isNaN(num)) {
+               soma = soma + num
+           }
+
+       } while(num != 0)   // teste
+
+       document.write(`A soma dos número informados é ${soma}.`)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
