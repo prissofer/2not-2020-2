@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documetno HTML</title>
+    <style>
+        label{
+            
+            /* Forçar o modo de exibição emm bloco */
+            display: block;
+        }
+        fieldset label {
+            display: inline;
+        }
+
+        fieldset{
+            border 1px dotted lightgray;
+            border-radius: 8px;
+            width: 200px;
+        }
+        div, fieldset {
+            margin-bottom: 15px;
+        }
+    
+
+    </style>
+</head>
+<body>
+    <h1>Formulário de saudação</h1>
+    <div>
+        <label>Primeiro nome</label>
+        <input id="primeiro-nome" type = "text" placeholder="informe seu primeiro nome">
+    </div>
+    
+    <div>
+    <label>Sobrenome</label>
+    <input id="sobrenome"type = "text" placeholder="Informe seu sobrenome">
+    </div>
+
+    <div>
+        <label>Forma de tratamento</label>
+        <select> id="forma-tratamento"
+            <option>(Selecione)</option>
+            <option>Vossa Majestade</option>
+            <option>Excelentíssimo/a</option>
+            <option>Ilustríssimo/a</option>
+            <option>Vossa Senhoria</option>
+            <option>Senhor/a</option>
+            <option>Cremosíssimo/a</option>
+        </select>
+    </div>
+    <fieldset>
+        <legend>Sexo</legend>
+        <input type="radio" id="feminino" name="sexo" checked><label for="feminino">Feminino</label>
+        <br>
+        <input type="radio" id="masculino" name="sexo"><label for="masculino">Masculino</label>
+
+    </fieldset>
+
+    <div>
+        <label>Hora do dia</label>
+        <input type="number" id="hora-dia" min="0" max="23">
+    </div>
+
+    <fieldset>
+        <legend>Exibição da saudação</legend>
+        <input type="checkbox" id="alert">
+        <label for="alert">Exibir com alert()</label>
+        <br>
+        <input type="checkbox" id="document">
+        <label for="document">Exibir no documento</label>
+
+    </fieldset>
+
+    <div id="saudacao"></div>
+
+    <div>
+        <button id="enviar">Enviar</button>
+    </div>
+
+  <script>
+        // 'use strict' impede que variáveis sejam declaradas com o uso de let, var, ou const.
+        // Inicializar variáveis diretamente é má prática de programação
+        'use strict'
+
+        /* PASSO 1: captura dos elementos HTML */
+
+        const elemPrimeiroNome = document.querySelector('#primeiro-nome')
+        const elemSobrenome = document.querySelector('#sobrenome')
+        const elemFormaTratamento = document.querySelector('#forma-tratamento')
+        const elemMasculino = document.querySelector('#masculino')
+        const elemFeminico = document.querySelector('#feminino')
+        const elemHoraDia = document.querySelector('#hora-dia')
+        const elemAlert = document.querySelector('#alert')
+        const elemDocument = document.querySelector('#document')
+        const elemSaudacao = document.querySelector('#saudacao')
+        const elemEnviar = document.querySelector('#enviar')
+
+        /* PASSO 2: validação da entrada de usuário*/
+        function validar() {
+
+            let valido = true
+
+            // trim(): retira espaços em branco no início e no final de uma string
+            if(elemPrimeiroNome.value.trim() == '') {
+                alert('O primeiro nome deve ser informado.')
+                elemPrimeiroNome.focus()    // Coloca o foco no controle
+                valido = false
+            }
+            else if(elemSobrenome.value.trim() == '')   {
+                alert('O sobenome deve ser informado.')
+                elemSobrenome.focus()
+                valido = false
+            }
+            else if(elemFormaTratamento.selectedIndex <= 0)  {
+                alert('Escolha uma forma de trabalho.')
+                elemFormaTratamento.focus()
+                valido = false
+            }
+            else if(elemHoraDia.value.trim() =='' || elemHoraDia.value <0 || elemHoraDia.value > 23) {
+                alter('Informe um hora do dia válida.')
+                elemHoraDia.focus()
+                valido = false
+            }
+            else if (!(elemAlert.checked || elemDocument.checked))  {
+                alert('Pelo menos uma forma de exibição deve ser marcada.')
+                elemAlert.focus()
+                valido = false
+            }
+
+            return valido
+        }
+
+        elemEnviar.addEventListener('click', validar)
+
+    </script>
+
+</body>
+</html>

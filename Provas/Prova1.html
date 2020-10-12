@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documetno HTML</title>
+    <script>
+        // 'use strict' impede que variáveis sejam declaradas com o uso de let, var, ou const.
+        // Inicializar variáveis diretamente é má prática de programação
+        'use strict'
+
+        /*
+            Faça um loop for para escrever no documento, com document.write(), apenas os quilômetors nos quais haverá lombofaixa, no sentido Franca - São Paulo, 
+            lembrando que o km 1 fica em São Paulo.
+        */
+
+     for(let km = 400; km >= 1; km = km - 1 ) {
+         if (km % 29 == 0) {
+            document.write(`Lombofaixa no quilômetro ${km}<br>`)
+        }
+     }
+        /*
+            ABORDAGEM ALTERNATIVA QUE TAMBÉM FOI CONSIDERADA NA CORREÇÃO
+            FOR(LET KM = 400; KM>=1; KM -= 29)  {
+                document.write(`Lombofaixa no quilômetro ${km}<br>`)
+            }
+        */
+
+        /*
+            Em seguida, peça para o usuário informar um quilômetro entre 1 e 400. Faça a verificação se o usuário realmente informou um número inteiro se o número
+            informado está na faixa esperada usando do..while.
+        */
+        let quilometro
+        do {
+          quilometro= parseInt(prompt('Informe um quilometro entre 1 à 400:'))
+        } while(isNaN(quilometro) || quilometro < 1 || quilometro >= 400)
+
+
+            let msg
+            switch(quilometro) {
+                case 92:
+                case 177:
+                case 291:
+                case 388:
+                     msg = 'Mega Loja do Magazine Luiza'
+                    break
+                case 153:
+                case 356:
+                    msg = 'Drive-thru dos Calçados Rafarillo'
+                    break
+                case 187: 
+                    msg = 'Posto de recarga da Viação São José'
+                    break
+                case 210: 
+                    msg = 'Padaria Estrela'
+                    break
+                case 314: 
+                    msg = 'Fábrica do Jubileu do Amendoim'
+                    break
+                case 367: 
+                    msg = 'Franca AcquaParque Unidade II'
+                    break
+
+                default:        // se não entrar em nenhum case
+                     msg = 'Vapo, tem nada aqui não. Segue reto toda vida, meu fii.'
+
+        }
+        alert(msg)
+        </script>
+</head>
+<body>
+    
+</body>
+</html>
