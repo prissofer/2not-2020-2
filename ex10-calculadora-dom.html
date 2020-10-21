@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    
+     <h1>Formulário Calculadora</h1>
+
+     <div>
+        <label>Informe o primeiro número:</label>
+        <input id="num1" type="number">
+    </div>
+
+    <div>
+        <label>Escolha um operador</label>
+            <select id="operador">
+            <option>(Selecione)</option>
+            <option value="somar">Somar</option>
+            <option value="subtrair"subtrair>Subtrair</option>
+            <option value="multiplicar">Multiplicar</option>
+            <option value="dividir">Dividir</option>
+            <option value="potenciacao">Potenciação</option>
+            <option value="restodadivisao">Resto da divisão</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Informe o segundo número:</label>
+        <input id="num2" type="number">
+    </div>
+
+    <div id="res"></div>
+
+    <div>
+        <button id="calcular" onClick= "validar()">Calcular</button>
+    </div>
+
+    <script>
+
+        // 'use strict' impede que variáveis sejam declaradas
+        // sem o uso de let, var ou const
+        // Inicializar variáveis diretamente é má prática de
+        // programação
+        'use strict'
+        /* 
+
+            Monte um formulário com os seguintes campos:
+            * Primeiro número (input numérico)
+            * Operação aritmética (select, com as opções de soma, subtração,
+                multiplicação, divisão, potenciação e resto da divisão)
+            * Segundo número (input numérico)
+            * Div para exibição do resultado da operação aritmética
+            * Botão "calcular"
+
+            Validações:
+            * Os campos de número devem estar preenchidos e com números válidos
+            * Deve ter sido selecionada uma operação artimética válida
+
+        */
+
+        var elemPrimeiroNum = document.querySelector('#num1')
+        var elemOperador = document.querySelector('#operador')
+        var elemSegundoNum = document.querySelector('#num2')
+        var elemResultado = document.querySelector('#res')
+        var elemCalcular = document.querySelector('#calcular')
+
+        
+        /* Validação da validação da entrada*/
+
+        function validar () {
+          var res = 0;
+          var num1 = parseInt(elemPrimeiroNum.value)
+          var num2 = parseInt(elemSegundoNum.value)
+
+            if(elemPrimeiroNum.value.trim() == ''){
+            alert('O primeiro número deve ser informado')
+            elemPrimeiroNum.focus()
+            }
+
+            else if(elemOperador.value <= 0) {
+                alert('Selecioane um operador')
+                elemOperador.focus() 
+            }
+            else if(elemSegundoNum.value.trim() == '') {
+                alert('O segundo número deve ser informado')
+                elemSegundoNum.focus()
+                
+            } else {
+              switch(elemOperador.value) {
+               case 'somar':
+                    res = num1 + num2
+                    break;
+
+                case 'subtrair':
+                    res = num1 - num2
+                    break;
+
+                case 'multiplicar':
+                    res = num1 * num2
+                    break;
+
+                case 'dividir':
+                    res = num1 / num2
+                    break;
+
+                case 'potenciacao':
+                    res = num1 ** num2
+                    break;
+                
+                case 'restodadivisao':
+                    res = num1 % num2 
+                    break;
+
+            }
+            elemResultado.innerHTML = res
+            }           
+        }
+        </script>
+    </body>
+</html>
+
+        

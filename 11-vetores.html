@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documetno HTML</title>
+    <script>
+        // 'use strict' impede que variáveis sejam declaradas com o uso de let, var, ou const.
+        // Inicializar variáveis diretamente é má prática de programação
+        'use strict'
+
+        // Declarando um vetor
+        let vetor1 = []  // Posso criar um vetor e após declarar , com [] é uma forma moderna
+        let vetor2 = Array () // Forma tradicional
+
+        // Declarando e inicializando vetores com elementos
+        let carros = ['Fusca', 'Del Rey', 'Passat', 'Opala'] // Cntagem de elementos é 4, no entanto como a posição inicia em zero e então temos 3 posições
+        let cores = Array ('verde', 'laranja', 'vermelho', 'amarelo', 'rosa')
+        let numeros = Array(2,3,5,7,11,13,17,19)
+        
+        // Vetor de tipos misturados
+        let misturado = ['João da Couves', 63, false, null, undefined]
+
+        let frutas = []
+        /* push(): insere novos elemntos no Final do vetor */
+        frutas.push('laranja')
+        frutas.push('melancia')
+        frutas.push('maça','limão','pera')
+        console.log(frutas)
+
+        /*unshift(): insere novos elementos no INÍCIO do vetor */
+        frutas.unshift('jabuticaba')
+        frutas.unshift('amora')
+        
+        /*pop(): retira UM elemento do FINAL do vetor*/
+        let retirado = frutas.pop() // retira e coloca em uma nova variável
+        frutas.pop()                // retira e não aparece mais e para retirar mais de um tem que repetir o comando
+        console.log('Retirado:', retirado)
+
+        /* shift(): retira UM elemento do INÍCIO do vetor*/
+        frutas.shift()          // Retira e perde
+        retirado = frutas.shift() // Retira e coloca em uma variável
+        console.log('Retirado:', retirado)
+
+        /* splice: insere elementos em uma posição específica do vetor
+            Prametros:
+            1º: a posição onde será feita a inserção 
+            2º: quantos elementos serão APAGADOS (para inserção, deve ser zero (0))
+            3º: os elementos que serão inseridos
+        */
+
+        frutas.splice(2,0,'morango')
+        frutas.splice(1,0,'jaca','ameixa')
+        /* Usando o splice() para fazer substituição */
+        frutas.splice(3,1,'manga') // 1 elemento será apagado e substituido na posição 3
+
+        /* splice(): também retira elementos de uma posição específica do vetor
+            Parametros:
+            1º: posição onde será feita a retirada
+            2º: quantidade de elementos que serão removidos (>0)
+        */
+       retirado = frutas.splice(1,1)
+       console.log('Retirado', retirado)
+
+       // colocando novos elementos de uma vez
+       frutas.push('frambuesa', 'caju', 'maracuja', 'mexerica') 
+       
+       //Retirando vários elemntos de uma vez
+       retirado = frutas.splice(4,3) // A partir da posição 4, retire 3 elementos
+       console.log('Retirado', retirado)
+
+       // Retirando o último elemento do vetor
+       frutas.splice(-1,1) // POsição negativa conta as posições de trás para frente
+
+       /* length: retorna o número de elementos do vetor */
+       console.log('Numero de elementos:', frutas.length)       // caso coloque a grafia errada não dará erro e não fará nada
+
+       /* indexOf: retorna a posição da primeira ocorrência do valor especificado, ou -1 cso o valor não exista no vetor */
+       console.log('ameixa: ', frutas.indexOf('ameixa'))
+       console.log('melão: ', frutas.indexOf('melão'))
+       console.log('morango: ', frutas.indexOf('morango'))
+
+       if(frutas.indexOf('jambo')>=0) {
+           console.log('Existe')
+       } 
+       else{
+           console.log('Não Existe')
+       }
+
+       /* includes(): retorna se o valor de busca (true) ou não existe (false) dentro do vetor */
+       console.log('ameixa: ', frutas.includes('ameixa'))
+       console.log('melão: ', frutas.includes('melão'))
+       console.log('morango: ', frutas.includes('morango'))
+
+       if(frutas.includes('jambo')) {
+           console.log('Existe')
+       } 
+       else{
+           console.log('Não Existe')
+       }
+
+
+
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
